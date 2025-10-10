@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter some Text ");
+  const [text, setText] = useState("");
 
   const handleUpClick = () => {
     let newt = text.toUpperCase();
@@ -43,10 +43,7 @@ export default function TextForm(props) {
     props.showAlert("Content Alternated!", "success");
   };
   const handleCopyClick = () => {
-    let copy = document.getElementById("myBox");
-    copy.select();
-    copy.setSelectionRange(0, 9999);
-    navigator.clipboard.writeText(copy.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied!", "success");
   };
   const handleExtraSpaces = () => {
@@ -61,7 +58,9 @@ export default function TextForm(props) {
         <h2 className="my-4 text-center">{props.heading}</h2>
         <div className="mb-3">
           <textarea
+            placeholder="Enter some Text here..."
             style={{
+                border: '2px solid',
               backgroundColor:
               props.mode === "light"
                   ? "#EEEEEE" :
@@ -85,28 +84,30 @@ export default function TextForm(props) {
             onChange={handleOnClick}
             value={text}
             id="myBox"
+            rows="4"
           ></textarea>{" "}
         </div>
-        <button className="btn btn-primary mx-2" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}}  onClick={handleLoClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}}  onClick={handleLoClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleClear}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleClear}>
           Clear
         </button>
-        <button className="btn btn-primary mx-2" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleRevClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleRevClick}>
           Reverse Text
         </button>
-        <button className="btn btn-primary mx-2" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleUpLoClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleUpLoClick}>
           Alternate Text
         </button>
-        <button className="btn btn-primary mx-2" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleCopyClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}} onClick={handleCopyClick}>
           Copy Text
         </button>
         <button
-          className="btn btn-primary mx-2 my-3"
+          className="btn btn-primary mx-1 my-1"
+          disabled={text.length===0}
           style={{backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary', color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'}}
           onClick={handleExtraSpaces}
         >
@@ -115,22 +116,22 @@ export default function TextForm(props) {
       </div>
 
       <div className="container mb-y">
-        <h2>Your Summary</h2>
+        <h4>Word Counter</h4>
         <p>
           {
             text
               .trim()
-              .split(" ")
+              .split(/\s+/)
               .filter((word) => word.length !== 0).length
           }{" "}
           words and {text.length} characters
         </p>
         <h4>Read Time</h4>
-        <p>{0.008 * text.split(" ").length} minutes</p>
+        <p>{0.008 * text.split(/\s+/).filter((word) => word.length !== 0).length} minutes</p>
         <h4>Preview</h4>
         <p>
           {text === ""
-            ? "Enter Something in the Textbox above to see text here"
+            ? "Nothing to Preview!"
             : text}
         </p>
       </div>

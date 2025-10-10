@@ -1,32 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-  const [myStyle, setmyStyle] = useState({
-    backgroundColor: "white",
-    color: "black",
-  });
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-  const ToggleBtn = () => {
-    if (myStyle.backgroundColor === "white") {
-      setmyStyle({
-        backgroundColor: "black",
-        color: "white",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setmyStyle({
-        backgroundColor: "white",
-        color: "black",
-      });
-      setBtnText("Enable Dark Mode");
+export default function About(props) {
+  
+    let myStyle={
+    backgroundColor: props.mode==='light'?'#D8D9CF':props.mode==='dark'?'#3E6D9C': props.mode==='green'?'#799351' : props.mode==='red'? '#A91D3A': 'primary',
+    color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'
     }
-  };
+    let myback={
+        backgroundColor: props.mode==='light'?'#EDEDED':props.mode==='dark'?'#0C0950': props.mode==='green'?'#0A400C' : props.mode==='red'? '#3E0703': 'primary',
+    color: props.mode==='light'?'black':props.mode==='dark'? 'white':props.mode==='green'?'black':props.mode==='red'?'white':'black'
+    }
 
   return (
     <>
-      <div className="container" style={myStyle}>
-        <h1 className="my-3" style={myStyle}>
+      <div className="container" >
+        <h1 className="my-3" style={myback}>
           About Us
         </h1>
         <div className="accordion" id="accordionExample" style={myStyle}>
@@ -41,7 +29,7 @@ export default function About() {
                 aria-controls="collapseOne"
                 style={myStyle}
               >
-                Accordion Item #1
+                <strong>What is TextMann?</strong>
               </button>
             </h2>
             <div
@@ -50,15 +38,7 @@ export default function About() {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the first item’s accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It’s also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                TextMann is a simple yet powerful text analyzer tool. You can modify, format, and optimize your text instantly, convert to uppercase or lowercase, remove extra spaces, count words and characters, and much more. Whether you're writing content, coding, or just experimenting with text, TextMann helps make your writing cleaner and smarter.
               </div>
             </div>
           </div>
@@ -73,7 +53,7 @@ export default function About() {
                 aria-controls="collapseTwo"
                 style={myStyle}
               >
-                Accordion Item #2
+               <strong>How to use TextMann?</strong>
               </button>
             </h2>
             <div
@@ -82,15 +62,7 @@ export default function About() {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the second item’s accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It’s also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+               Simply type or paste your text in the box, then use the available tools to transform or analyze it instantly.
               </div>
             </div>
           </div>
@@ -105,7 +77,7 @@ export default function About() {
                 aria-controls="collapseThree"
                 style={myStyle}
               >
-                Accordion Item #3
+               <strong>Contact Us</strong>
               </button>
             </h2>
             <div
@@ -114,27 +86,13 @@ export default function About() {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body" style={myStyle}>
-                <strong>This is the third item’s accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It’s also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+               Have questions or feedback? Reach out to us anytime, we’d love to hear from you!
+                You can contact our team through email or social platforms.
+                We’ll respond as soon as possible to assist you with your queries.              
               </div>
             </div>
           </div>
         </div>
-
-        <button
-          onClick={ToggleBtn}
-          className="btn btn-primary my-3"
-          style={myStyle}
-        >
-          {btnText}
-        </button>
       </div>
     </>
   );

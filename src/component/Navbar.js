@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   const getNavbarStyle = () => {
@@ -20,9 +20,9 @@ export default function Navbar(props) {
       style={getNavbarStyle()}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#" style={{ color: "inherit" }}>
-          TextUtils
-        </a>
+        <Link className="navbar-brand" to="/" style={{ color: "inherit" }}>
+          TextMann
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -38,17 +38,15 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse text" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              {/* <Link className="nav-link active" aria-current="page" to="/" style={{ color: "inherit" }}>
+              <Link className="nav-link" aria-current="page" to="/" style={{ color: "inherit" }}>
                 Home
-              </Link> */}
-               <a className="nav-link active" aria-current="page" href="#" style={{ color: "inherit" }}>
-                Home
-              </a>
+              </Link>
+              
             </li>
             <li className="nav-item">
-              {/* <Link className="nav-link" to="/about" style={{ color: "inherit" }}>
+              <Link className="nav-link" to="/about" style={{ color: "inherit" }}>
                 About
-              </Link> */}
+              </Link>
             </li>
           </ul>
         </div>
