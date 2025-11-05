@@ -26,7 +26,7 @@ Even though this project looks simple, it represents consistent learning, debugg
 
 - **Frontend:** ReactJS  
 - **Styling:** Bootstrap  
-- **Hosting:** Vercel  
+- **Hosting:** DigitalOcean as well as Vercel 
 
 ---
 
