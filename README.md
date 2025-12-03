@@ -52,7 +52,7 @@ Even though this project looks simple, it represents consistent learning, debugg
 4. Open [http://localhost:3000] in your browser.
 
    ```bash
-   (http://localhost:3000)
+   http://localhost:3000
    ```
 ---
 
