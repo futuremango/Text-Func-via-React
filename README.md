@@ -49,8 +49,11 @@ Even though this project looks simple, it represents consistent learning, debugg
    npm start
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [http://localhost:3000] in your browser.
 
+   ```bash
+   (http://localhost:3000)
+   ```
 ---
 
 ## Author
