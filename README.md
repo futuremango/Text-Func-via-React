@@ -68,7 +68,5 @@ Each line of code written here reflects a step forward in my journey as a develo
 
 Visit the live site here:
 ```bash
-   http://localhost:3000](http://159.65.157.100/textmann/
-   ```
-
-```
+ http://159.65.157.100/textmann/
+  ```
