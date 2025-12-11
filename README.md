@@ -66,6 +66,9 @@ Each line of code written here reflects a step forward in my journey as a develo
 
 ## Live Demo
 
-Visit the live site here: [TextMann on Vercel](https://textmann.vercel.app)
+Visit the live site here:
+```bash
+   http://localhost:3000](http://159.65.157.100/textmann/
+   ```
 
 ```
